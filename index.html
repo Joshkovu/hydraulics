@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Channel | Hydraulic analysis bench</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="/" aria-label="Open Channel home"><span class="wordmark-mark">OC</span><span>open channel</span></a>
+      <div class="topbar-meta"><span class="status-dot"></span><span>Calculation engine ready</span><span class="version">v1.0</span></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="intro-panel">
+        <p class="eyebrow">Hydraulic analysis bench</p>
+        <h1>Turn a channel section into a clear decision.</h1>
+        <p class="intro-copy">A focused workspace for uniform flow, controls, jumps, contractions, and depressions. Every result is calculated by the numerical engine in this project.</p>
+        <div class="section-sketch" aria-hidden="true">
+          <div class="sketch-label">SECTION / LIVE</div>
+          <div class="sketch-water"></div>
+          <div class="sketch-channel"></div>
+          <span class="sketch-depth">y</span><span class="sketch-width">b</span>
+        </div>
+        <div class="rule"></div>
+        <div class="notation"><span class="notation-number">01</span><span>Define the section</span></div>
+        <div class="notation"><span class="notation-number">02</span><span>Choose the hydraulic question</span></div>
+        <div class="notation"><span class="notation-number">03</span><span>Inspect the resulting profile</span></div>
+        <div class="aside-footer">SI units · depths in metres · discharge in m³/s</div>
+      </aside>
+
+      <section class="workbench" aria-label="Hydraulic calculator">
+        <div class="section-heading">
+          <div><p class="eyebrow">01 / Setup</p><h2>Analysis parameters</h2></div>
+          <span class="shape-badge" id="shape-badge">RECTANGULAR</span>
+        </div>
+
+        <form id="analysis-form" novalidate>
+          <div class="form-grid compact-grid">
+            <label>Channel shape<select id="shape" name="shape">
+              <option value="rectangular">Rectangular</option><option value="wide_rectangular">Wide rectangular</option><option value="triangular">Triangular</option><option value="trapezoidal">Trapezoidal</option><option value="circular">Circular</option><option value="semi_circular">Semi-circular</option>
+            </select></label>
+            <label>Analysis family<select id="category" name="category">
+              <option value="uf">Uniform flow</option><option value="weirs">Weirs</option><option value="jumps">Hydraulic jumps</option><option value="contractions">Contractions</option><option value="depressions">Depressions</option>
+            </select></label>
+            <label>Calculation<select id="operation" name="operation"></select></label>
+          </div>
+
+          <div class="subsection"><div class="subsection-label">Flow and section</div><div id="dynamic-fields" class="form-grid"></div></div>
+          <div class="form-actions"><button class="primary-button" type="submit"><span>Run calculation</span><span class="button-arrow">→</span></button><button class="quiet-button" type="button" id="reset-button">Reset</button></div>
+        </form>
+
+        <section class="results-section" aria-live="polite">
+          <div class="section-heading result-heading"><div><p class="eyebrow">02 / Output</p><h2 id="result-title">Awaiting a section</h2></div><span id="result-tag" class="result-tag">READY</span></div>
+          <div id="result-area" class="result-area empty-state"><div class="empty-mark">∿</div><h3>Your result will appear here</h3><p>Set the section and run a calculation to populate the bench.</p></div>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
